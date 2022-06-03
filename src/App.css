@@ -36,3 +36,47 @@
     transform: rotate(360deg);
   }
 }
+
+.light-blue {
+  background-color: #9bbec7;
+}
+
+.dark-blue {
+  background-color: #0c4854;
+}
+
+.light-white {
+  background-color: #edf6f7;
+}
+
+.sea {
+  background-color: #bae7ec;
+}
+
+.sky {
+  background-color: #2ba3c2;
+}
+
+.text-light-blue {
+  color: #9bbec7;
+}
+
+.text-dark-blue {
+  color: #0c4854;
+}
+
+.text-light-white {
+  color: #edf6f7;
+}
+
+.text-sea {
+  color: #bae7ec;
+}
+
+.text-sky {
+  color: #2ba3c2;
+}
+
+.box {
+  border: solid 2px green;
+}
