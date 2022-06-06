@@ -107,7 +107,7 @@ function RegisterPage() {
               name={'ProfilePicture'}
             />
           </div>
-          <SubmitButton classname="btn btn-light" onSubmit={handleSubmit}>
+          <SubmitButton classname="btn sea" onSubmit={handleSubmit}>
             Submit
           </SubmitButton>
         </Form>

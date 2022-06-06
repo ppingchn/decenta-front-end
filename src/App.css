@@ -38,43 +38,43 @@
 }
 
 .light-blue {
-  background-color: #9bbec7;
+  background-color: #9bbec7 !important;
 }
 
 .dark-blue {
-  background-color: #0c4854;
+  background-color: #0c4854 !important;
 }
 
 .light-white {
-  background-color: #edf6f7;
+  background-color: #edf6f7 !important;
 }
 
 .sea {
-  background-color: #bae7ec;
+  background-color: #bae7ec !important;
 }
 
 .sky {
-  background-color: #2ba3c2;
+  background-color: #2ba3c2 !important;
 }
 
 .text-light-blue {
-  color: #9bbec7;
+  color: #9bbec7 !important;
 }
 
 .text-dark-blue {
-  color: #0c4854;
+  color: #0c4854 !important;
 }
 
 .text-light-white {
-  color: #edf6f7;
+  color: #edf6f7 !important;
 }
 
 .text-sea {
-  color: #bae7ec;
+  color: #bae7ec !important;
 }
 
 .text-sky {
-  color: #2ba3c2;
+  color: #2ba3c2 !important;
 }
 
 .box {
