@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { BiLogIn } from 'react-icons/bi';
 function MenuItem({ icon, title, path }) {
   return (
     <div className="fs-4">

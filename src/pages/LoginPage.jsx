@@ -6,11 +6,16 @@ function LoginPage() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   return (
-    <div className="container-fluid dark-blue text-light-white py-4 box w-50">
+    <div className="container-fluid dark-blue text-light-white box w-50 ">
       <div className="">
-        <form onSubmit={login({})}>
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            login({ username, password });
+          }}
+        >
           <div className="mb-3">
-            <label for="exampleInputEmail1" className="form-label">
+            <label htmlFor="exampleInputEmail1" className="form-label">
               Username
             </label>
             <input
@@ -25,7 +30,7 @@ function LoginPage() {
             />
           </div>
           <div className="mb-3">
-            <label for="exampleInputPassword1" className="form-label">
+            <label htmlFor="exampleInputPassword1" className="form-label">
               Password
             </label>
             <input

@@ -10,8 +10,19 @@ function AuthContextProvider({ children }) {
     const res = await axios.post('/auth/login', input);
     setAccessToken(res.data.token);
   };
+  const register = async (input) => {
+    console.log(input);
+    const departmentId = await axios.post(
+      `/department/${input.departmentName}`
+    );
+    console.log(departmentId);
+    input.departmentId = departmentId.data.id;
+    const res = await axios.post('/auth/register', input);
+  };
   return (
-    <AuthContext.Provider value={{ login }}>{children}</AuthContext.Provider>
+    <AuthContext.Provider value={{ login, register }}>
+      {children}
+    </AuthContext.Provider>
   );
 }
 const useAuth = () => {
