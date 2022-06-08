@@ -19,14 +19,31 @@ function InputForm({
         render={({ field: { onChange, value } }) => {
           return (
             <>
-              <label className="form-label">{name}</label>
-              <input
-                className={className}
-                value={value}
-                onChange={onChange}
-                type={`${type}`}
-                {...props}
-              />
+              {type === 'file' ? (
+                <>
+                  <label className="form-label">{name}</label>
+                  <input
+                    className={className}
+                    onChange={(e) => {
+                      onChange(e.target.files[0]);
+                    }}
+                    type={type}
+                    {...props}
+                  />
+                </>
+              ) : (
+                <>
+                  {' '}
+                  <label className="form-label">{name}</label>
+                  <input
+                    className={className}
+                    value={value}
+                    onChange={onChange}
+                    type={type}
+                    {...props}
+                  />
+                </>
+              )}
             </>
           );
         }}

@@ -32,12 +32,9 @@ function AuthContextProvider({ children }) {
     setAccessToken(res.data.token);
     fetchMe();
   };
-  const register = async (input) => {
-    console.log(input);
-    const departmentId = await axios.post(
-      `/department/${input.departmentName}`
-    );
-    input.departmentId = departmentId.data.id;
+  const register = async (input, departmentName) => {
+    const departmentId = await axios.post(`/department/${departmentName}`);
+    input.append('departmentId', departmentId.data.id);
     await axios.post('/auth/register', input);
   };
   const logout = async () => {

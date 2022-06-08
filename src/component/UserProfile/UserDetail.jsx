@@ -3,7 +3,7 @@ import { HiUserCircle } from 'react-icons/hi';
 
 function UserDetail({ src, username, department }) {
   return (
-    <div className="d-flex flex-row">
+    <div className="d-flex flex-row align-items-center me-2">
       {src ? (
         <img
           className={`rounded-circle border border-white `}
@@ -15,7 +15,7 @@ function UserDetail({ src, username, department }) {
       ) : (
         <HiUserCircle size={50} />
       )}
-      <div className="d-flex flex-column">
+      <div className="d-flex flex-column ms-2">
         <span>{username}</span>
         <span>{department}</span>
       </div>

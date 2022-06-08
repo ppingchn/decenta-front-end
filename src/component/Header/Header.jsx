@@ -5,10 +5,10 @@ import MenuBar from './MenuBar';
 function Header() {
   return (
     <nav
-      className="navbar navbar-expand-sm navbar-light text-align-center align-items-center d-flex flex-column shadow mh-100 light-blue "
+      className="navbar navbar-expand-sm navbar-light text-align-center d-flex flex-column shadow mh-100 light-blue "
       style={{ height: '100vh' }}
     >
-      <div className="container-fluid">
+      <div className="container-fluid justify-content-center d-flex">
         <Link className="navbar-brand" to="/">
           <h1>DECENTA</h1>
         </Link>

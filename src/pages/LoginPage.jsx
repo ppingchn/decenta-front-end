@@ -6,8 +6,11 @@ function LoginPage() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   return (
-    <div className="container-fluid dark-blue text-light-white box w-50 ">
-      <div className="">
+    <div
+      className="container-fluid dark-blue text-light-white box w-50"
+      style={{ height: '30vh' }}
+    >
+      <div className="mt-2">
         <form
           onSubmit={(e) => {
             e.preventDefault();

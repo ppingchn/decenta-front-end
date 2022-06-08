@@ -19,20 +19,21 @@ function RegisterPage() {
     FirstName: yup.string().required('Firstname is required'),
     LastName: yup.string().required('Lastname is required'),
     PhoneNumber: yup.string(),
-    ProfilePicture: yup.string().required('Profile Picture is required'),
+    ProfilePicture: yup.mixed(),
   });
   const handleSubmit = (data, reset) => {
-    console.log(data);
-    register({
-      username: data.Username,
-      password: data.Password,
-      confirmPassword: data.ConfirmPassword,
-      departmentName: data.DepartmentName,
-      firstName: data.FirstName,
-      lastName: data.LastName,
-      phoneNumber: data.PhoneNumber,
-      profilePic: data.ProfilePicture,
-    });
+    console.log(data.ProfilePicture);
+
+    const formData = new FormData();
+    formData.append('username', data.Username);
+    formData.append('password', data.Password);
+    formData.append('confirmPassword', data.ConfirmPassword);
+    formData.append('departmentName', data.DepartmentName);
+    formData.append('firstName', data.FirstName);
+    formData.append('lastName', data.LastName);
+    formData.append('phoneNumber', data.PhoneNumber);
+    formData.append('profilePic', data.ProfilePicture);
+    register(formData, data.DepartmentName);
     navigate('/');
   };
   return (
@@ -111,114 +112,6 @@ function RegisterPage() {
             Submit
           </SubmitButton>
         </Form>
-        {/* <form className="row g-3 pt-3 m-1" onSubmit={() => register({})}>
-          <>
-            <div className="col-md-6">
-              <label htmlFor="inputEmail4" className="form-label">
-                Username
-              </label>
-              <input
-                type="text"
-                className="form-control"
-                id="inputEmail4"
-                onChange={(e) => setUsername(e.target.value)}
-              />
-            </div>
-            <div className="col-md-6">
-              <label htmlFor="inputPassword4" className="form-label">
-                Password
-              </label>
-              <input
-                type="password"
-                className="form-control"
-                id="inputPassword4"
-                onChange={(e) => setPassword(e.target.value)}
-              />
-            </div>
-            <div className="col-md-6">
-              <label htmlFor="inputEmail4" className="form-label">
-                Confirmpassword
-              </label>
-              <input
-                type="password"
-                className="form-control"
-                id="inputConfirmPassword4"
-                onChange={(e) => setConfirmPassword(e.target.value)}
-              />
-            </div>
-            <div className="col-md-6">
-              <label htmlFor="inputConfirmPassword4" className="form-label">
-                Department
-              </label>
-              <select
-                id="inputState"
-                class="form-select"
-                onChange={(e) => setDepartmentName(e.target.value)}
-              >
-                <option value={ADMINISTATIVE} selected>
-                  Administative
-                </option>
-                <option value={TREASURER}>Treasurer</option>
-                <option value={MARKETING}>Marketing</option>
-                <option value={PUBLIC_RELATION}>Public Relation</option>
-                <option value={EVENT_ORGANIZER}>Event Organizer</option>
-                <option value={INTERNATIONAL_SERVICE}>
-                  International Service
-                </option>
-                <option value={HUMAN_RESOURCE}>Human Resource</option>
-              </select>
-            </div>
-          </>
-          <>
-            <div className="col-md-12">
-              <label htmlFor="inputEmail4" className="form-label">
-                Firstname
-              </label>
-              <input
-                type="text"
-                className="form-control"
-                id="inputEmail4"
-                onChange={(e) => setFirstName(e.target.value)}
-              />
-            </div>
-            <div className="col-md-12">
-              <label
-                htmlFor="inputEmail4"
-                className="form-label"
-                onChange={(e) => setLastName(e.target.value)}
-              >
-                Lastname
-              </label>
-              <input type="text" className="form-control" id="inputEmail4" />
-            </div>
-            <div className="col-md-6">
-              <label
-                htmlFor="inputEmail4"
-                className="form-label"
-                onChange={(e) => setPhoneNumber(e.target.value)}
-              >
-                Phonenumber
-              </label>
-              <input
-                type="text"
-                className="form-control"
-                id="inputEmail4"
-                onChange={(e) => setProfilePic(e.target.value)}
-              />
-            </div>
-            <div className="col-md-6">
-              <label htmlFor="inputEmail4" className="form-label">
-                Profile Picture
-              </label>
-              <input type="file" className="form-control" id="inputEmail4" />
-            </div>
-          </>
-          <div className="d-flex align-items-center flex-column">
-            <button type="submit" className="btn btn-light">
-              Submit
-            </button>
-          </div>
-        </form> */}
       </div>
     </div>
   );
