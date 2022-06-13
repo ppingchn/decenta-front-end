@@ -50,6 +50,7 @@ function CreateMeeting() {
       console.log(err);
     }
   };
+
   return (
     <>
       <button className="btn sea me-1 btn-sm" onClick={handleClickModal}>

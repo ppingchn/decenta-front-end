@@ -8,6 +8,7 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../node_modules/bootstrap/dist/js/bootstrap.min.js';
 import AuthContextProvider from './context/AuthContext';
 import MeetingContextProvider from './context/MeetingContext';
+import ProjectContextProvider from './context/ProjectContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -15,7 +16,9 @@ root.render(
     <BrowserRouter>
       <AuthContextProvider>
         <MeetingContextProvider>
-          <App />
+          <ProjectContextProvider>
+            <App />
+          </ProjectContextProvider>
         </MeetingContextProvider>
       </AuthContextProvider>
     </BrowserRouter>

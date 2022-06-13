@@ -4,6 +4,7 @@ import { useAuth } from '../context/AuthContext';
 import Authlayout from '../layout/Authlayout';
 import LoginPage from '../pages/LoginPage';
 import MeetingPage from '../pages/MeetingPage';
+import ProjectPage from '../pages/ProjectPage';
 import RegisterPage from '../pages/RegisterPage';
 
 function Router() {
@@ -14,7 +15,7 @@ function Router() {
         <Routes>
           <Route path="/" element={<Authlayout />}>
             <Route path="" element={<MeetingPage />} />
-            <Route path="project" element={<LoginPage />} />
+            <Route path="project" element={<ProjectPage />} />
             <Route path="employee" element={<LoginPage />} />
           </Route>
           <Route path="*" element={<Navigate to="/" />} />
