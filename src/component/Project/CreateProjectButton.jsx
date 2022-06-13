@@ -152,11 +152,14 @@ function CreateProjectButton() {
                     className="form-control"
                     value={projectHeadId || ''}
                     onChange={(e) => {
+                      if (!e.target.value) {
+                        setProjectHeadId(e.target.value);
+                      }
                       setProjectHeadId(e.target.value);
                       getHeadProjectDetail(e.target.value);
                     }}
                   >
-                    <option key="0" value={''}>
+                    <option key="0" value={0}>
                       --- Select Member ---
                     </option>
                     {headProjectList.map((el, idx) => {
@@ -170,9 +173,9 @@ function CreateProjectButton() {
                 </div>
 
                 <h5>Head Project</h5>
-                {Object.keys(headProjectDetail).length > 0 ? (
+                {headProjectDetail ? (
                   <>
-                    <div className="border border-1 ms-2 border-dark rounded-2 sea p-2 text-center d-flex gap-3">
+                    <div className="border border-1 border-dark rounded-2 sea p-2 text-center d-flex gap-3">
                       <img
                         className={`rounded-circle border border-white `}
                         src={headProjectDetail?.profilePic}
@@ -187,7 +190,7 @@ function CreateProjectButton() {
                         {headProjectDetail?.lastName}
                       </span>
                       <span className="flex-grow-1 fs-5 text-center align-self-center sky">
-                        {headProjectDetail.Department?.departmentName}
+                        {headProjectDetail?.Department?.departmentName}
                       </span>
                     </div>
                   </>

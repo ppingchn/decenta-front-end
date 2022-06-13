@@ -9,6 +9,7 @@ import '../node_modules/bootstrap/dist/js/bootstrap.min.js';
 import AuthContextProvider from './context/AuthContext';
 import MeetingContextProvider from './context/MeetingContext';
 import ProjectContextProvider from './context/ProjectContext';
+import EmployeeContextProvider from './context/EmployeeContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -17,7 +18,9 @@ root.render(
       <AuthContextProvider>
         <MeetingContextProvider>
           <ProjectContextProvider>
-            <App />
+            <EmployeeContextProvider>
+              <App />
+            </EmployeeContextProvider>
           </ProjectContextProvider>
         </MeetingContextProvider>
       </AuthContextProvider>

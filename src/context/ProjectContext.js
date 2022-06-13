@@ -6,7 +6,7 @@ const ProjectContext = createContext();
 function ProjectContextProvider({ children }) {
   const [project, setProject] = useState([]);
   const [headProjectList, setHeadProjectList] = useState([]);
-  const [headProjectDetail, setHeadProjectDetail] = useState({});
+  const [headProjectDetail, setHeadProjectDetail] = useState(null);
   const getAllProject = async () => {
     try {
       const res = await axios.get('/project');

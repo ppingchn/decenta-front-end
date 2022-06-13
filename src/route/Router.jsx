@@ -2,6 +2,7 @@ import React from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import Authlayout from '../layout/Authlayout';
+import EmployeePage from '../pages/EmployeePage';
 import LoginPage from '../pages/LoginPage';
 import MeetingPage from '../pages/MeetingPage';
 import ProjectPage from '../pages/ProjectPage';
@@ -16,7 +17,7 @@ function Router() {
           <Route path="/" element={<Authlayout />}>
             <Route path="" element={<MeetingPage />} />
             <Route path="project" element={<ProjectPage />} />
-            <Route path="employee" element={<LoginPage />} />
+            <Route path="employee" element={<EmployeePage />} />
           </Route>
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
