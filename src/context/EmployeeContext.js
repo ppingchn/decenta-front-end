@@ -1,8 +1,10 @@
 import { createContext, useContext, useEffect, useState } from 'react';
 import axios from '../config/axios';
+import { useAuth } from './AuthContext';
 
 const employeeContext = createContext();
 function EmployeeContextProvider({ children }) {
+  const { user } = useAuth();
   const [employees, setEmployees] = useState([]);
   const [filter, setFilter] = useState('');
   const getAllEmployees = async () => {
@@ -15,7 +17,7 @@ function EmployeeContextProvider({ children }) {
   };
   useEffect(() => {
     getAllEmployees();
-  }, []);
+  }, [user]);
   return (
     <employeeContext.Provider value={{ employees, setFilter, filter }}>
       {children}

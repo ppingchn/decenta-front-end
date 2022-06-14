@@ -69,6 +69,9 @@ function CreateMeeting() {
               <button
                 type="button"
                 className="btn-close"
+                onClick={() => {
+                  closeModal();
+                }}
                 data-bs-dismiss="modal"
               ></button>
             </div>

@@ -1,9 +1,11 @@
 import { createContext, useContext, useEffect, useState } from 'react';
 import axios from '../config/axios';
+import { useAuth } from './AuthContext';
 
 const ProjectContext = createContext();
 
 function ProjectContextProvider({ children }) {
+  const { user } = useAuth();
   const [project, setProject] = useState([]);
   const [headProjectList, setHeadProjectList] = useState([]);
   const [headProjectDetail, setHeadProjectDetail] = useState(null);
@@ -50,7 +52,7 @@ function ProjectContextProvider({ children }) {
   useEffect(() => {
     getAllProject();
     getHeadProject();
-  }, []);
+  }, [user]);
   return (
     <ProjectContext.Provider
       value={{
