@@ -25,6 +25,9 @@ function CreateMeeting() {
     onHold.push(input);
     setAgendaOnHold('');
   };
+  const resetAgenda = () => {
+    setOnHold([]);
+  };
   const closeModal = () => {
     setTitle('');
     setMeetingDate('');
@@ -138,29 +141,40 @@ function CreateMeeting() {
                 </div>
                 <div className="d-flex justify-content-between">
                   <h5 className="modal-title">Meeting Agenda</h5>
-                  <div>
-                    <div className="input-group mb-3">
-                      <input
-                        type="text"
-                        className="form-control"
-                        placeholder="Agenda"
-                        aria-label="Recipient's username"
-                        aria-describedby="button-addon2"
-                        value={agendaOnHold || ''}
-                        onChange={(e) => {
-                          setAgendaOnHold(e.target.value);
-                        }}
-                      />
-                      <button
-                        className="btn btn-outline-secondary sea"
-                        type="button"
-                        id="button-addon2"
-                        onClick={() => {
-                          standbyAddAgenda(agendaOnHold);
-                        }}
-                      >
-                        <AiOutlinePlus size={17} />
-                      </button>
+                  <div className="d-flex">
+                    <div className="input-group mb-3 d-flex gap-2">
+                      <div className="d-flex">
+                        <input
+                          type="text"
+                          className="form-control"
+                          placeholder="Agenda"
+                          aria-label="Recipient's username"
+                          aria-describedby="button-addon2"
+                          value={agendaOnHold || ''}
+                          onChange={(e) => {
+                            setAgendaOnHold(e.target.value);
+                          }}
+                        />
+                        <button
+                          className="btn btn-outline-secondary sea"
+                          type="button"
+                          id="button-addon2"
+                          onClick={() => {
+                            standbyAddAgenda(agendaOnHold);
+                          }}
+                        >
+                          <AiOutlinePlus size={17} />
+                        </button>
+                      </div>
+                      <div>
+                        <button
+                          className="btn text-light-white btn-outline-secondary btn-danger"
+                          type="button"
+                          onClick={() => resetAgenda()}
+                        >
+                          Reset
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>

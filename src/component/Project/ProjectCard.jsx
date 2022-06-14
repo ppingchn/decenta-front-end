@@ -7,6 +7,8 @@ function ProjectCard({ dueDate, projectName, projectType, data }) {
   const { deleteProject } = useProject();
   const [modal, setModal] = useState(null);
   const modalElement = useRef();
+  const nearBy =
+    Number(dayjs(dueDate).format('DD')) - Number(dayjs().format('DD'));
   const handleClickModal = () => {
     const modalObj = new Modal(modalElement.current);
     setModal(modalObj);
@@ -18,13 +20,19 @@ function ProjectCard({ dueDate, projectName, projectType, data }) {
   return (
     <>
       <div
-        className="dark-blue col-3 px-2 py-4 d-flex gap-3 flex-column align-items-center rounded h-50"
+        className={`dark-blue col-3 px-2 py-4 d-flex gap-3 flex-column align-items-center rounded h-50 ${
+          nearBy < 3 && 'bg-danger'
+        }`}
         style={{ minWidth: '150px', maxWidth: '215px' }}
         role="button"
         onClick={handleClickModal}
       >
         <h3 className="text-light-white">{dayjs(dueDate).format('DD/MM')}</h3>
-        <div className="sky text-dark-blue px-3 border rounded">
+        <div
+          className={`${
+            nearBy < 3 ? 'light-white' : 'sky'
+          } text-dark-blue px-3 border rounded`}
+        >
           <span className="text-center">{projectName}</span>
         </div>
         <div className="light-white text-dark-blue d-flex align-items-center px-3 border rounded">

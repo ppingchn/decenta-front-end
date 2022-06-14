@@ -9,6 +9,7 @@ function CreateProjectButton() {
     createProject,
     headProjectDetail,
     getHeadProjectDetail,
+    setHeadProjectDetail,
   } = useProject();
   const [projectName, setProjectName] = useState('');
   const [location, setLocation] = useState('');
@@ -30,6 +31,7 @@ function CreateProjectButton() {
     setProjectHeadId(null);
     setScopeFeild('');
     setProjectType('');
+    setHeadProjectDetail(null);
     modal.hide();
   };
   const handleClickCreate = async (e) => {

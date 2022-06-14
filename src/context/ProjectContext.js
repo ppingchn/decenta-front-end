@@ -62,6 +62,7 @@ function ProjectContextProvider({ children }) {
         headProjectDetail,
         getHeadProjectDetail,
         deleteProject,
+        setHeadProjectDetail,
       }}
     >
       {children}

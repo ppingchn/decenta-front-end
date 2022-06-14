@@ -8,6 +8,7 @@ function MeetingList({ title, meetingDate, id }) {
   const { meetingDetail, getMeetingDetail, agenda, deleteMeeting } =
     useMeeting();
   const formatDay = dayjs(meetingDate).format('DD');
+  const nearBy = Number(formatDay) - Number(dayjs().format('DD'));
   const formatMonth = dayjs(meetingDate).format('MM');
   const [modal, setModal] = useState(null);
   const modalElement = useRef();
@@ -32,11 +33,25 @@ function MeetingList({ title, meetingDate, id }) {
           }}
         >
           <div
-            className=" border border-1 ms-2 border-dark rounded-2 sky p-2 text-center"
+            className={`border border-1 ms-2 border-dark rounded-2 p-2 text-center ${
+              nearBy < 3 ? 'bg-danger' : 'sky'
+            }`}
             style={{ width: '17vh' }}
           >
-            <p className="p-0 m-0 text-3 text-dark-blue">{formatDay}</p>
-            <p className="p-0 m-0 text-3 text-dark-blue">{formatMonth}</p>
+            <p
+              className={`p-0 m-0 text-3 ${
+                nearBy < 3 ? 'text-light-white' : 'text-dark-blue'
+              } `}
+            >
+              {formatDay}
+            </p>
+            <p
+              className={`p-0 m-0 text-3 ${
+                nearBy < 3 ? 'text-light-white' : 'text-dark-blue'
+              } `}
+            >
+              {formatMonth}
+            </p>
           </div>
           <span className="flex-grow-1 fs-5 text-center align-self-center">
             {title}
