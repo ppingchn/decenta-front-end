@@ -65,7 +65,7 @@ function CreateMeeting() {
         tabIndex="-1"
         ref={modalElement}
       >
-        <div className="modal-dialog modal-dialog-centered">
+        <div className="modal-dialog modal-lg modal-dialog-centered">
           <div className="modal-content">
             <div className="modal-header">
               <h5 className="modal-title">Meeting Create</h5>
@@ -142,7 +142,7 @@ function CreateMeeting() {
                 <div className="d-flex justify-content-between">
                   <h5 className="modal-title">Meeting Agenda</h5>
                   <div className="d-flex">
-                    <div className="input-group mb-3 d-flex gap-2">
+                    <div className="input-group mb-3 d-flex gap-3">
                       <div className="d-flex">
                         <input
                           type="text"
@@ -168,7 +168,7 @@ function CreateMeeting() {
                       </div>
                       <div>
                         <button
-                          className="btn text-light-white btn-outline-secondary btn-danger"
+                          className="btn text-light-white btn-outline-secondary btn-small btn-danger"
                           type="button"
                           onClick={() => resetAgenda()}
                         >
@@ -184,10 +184,10 @@ function CreateMeeting() {
                     return <AgendaList key={idx} title={el} idx={idx + 1} />;
                   })}
                 </div>
-                <div className="pt-3 d-flex justify-content-center">
+                <div className="pt-3  d-flex justify-content-center">
                   <button
                     type="submit"
-                    className="btn btn-green sea text-4.5 h-9 shadow-none d-flex justify-content-center align-items-center tw-px-10"
+                    className="btn px-5 btn-green sea text-4.5 h-9 shadow-none d-flex justify-content-center align-items-center tw-px-10"
                   >
                     Create
                   </button>
