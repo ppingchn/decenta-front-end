@@ -8,7 +8,7 @@ function Authlayout() {
       <div className="col-3 box" style={{ minWidth: '20rem' }}>
         <Header />
       </div>
-      <div className="col-9 border">
+      <div className="col-9">
         <Outlet />
       </div>
     </div>

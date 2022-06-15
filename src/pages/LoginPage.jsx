@@ -7,7 +7,7 @@ function LoginPage() {
   const [password, setPassword] = useState('');
   return (
     <div
-      className="container-fluid dark-blue text-light-white box w-50"
+      className="container-fluid dark-blue text-light-white box w-50 p-2"
       style={{ height: '30vh' }}
     >
       <div className="mt-2">
