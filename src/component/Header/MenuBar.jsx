@@ -26,7 +26,7 @@ function MenuBar() {
             <MenuItem icon={<BiUser />} title="Employee" path="employee" />
           </div>
           <div className="align-items-end">
-            <UserProfile user={user} />
+            <UserProfile />
           </div>
         </div>
       ) : (

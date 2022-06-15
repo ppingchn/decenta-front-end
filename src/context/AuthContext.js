@@ -42,8 +42,12 @@ function AuthContextProvider({ children }) {
     setUser(null);
     navigate('/');
   };
+  const updateUser = async (input) => {
+    await axios.put('/auth/update', input);
+    fetchMe();
+  };
   return (
-    <AuthContext.Provider value={{ login, register, user, logout }}>
+    <AuthContext.Provider value={{ login, register, user, logout, updateUser }}>
       {children}
     </AuthContext.Provider>
   );
