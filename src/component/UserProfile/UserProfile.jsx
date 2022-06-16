@@ -7,7 +7,6 @@ import UserDetail from './UserDetail';
 
 function UserProfile() {
   const { updateUser, user } = useAuth();
-  const [username, setUsername] = useState(user.username);
   const [firstName, setFirstName] = useState(user.firstName);
   const [lastName, setLastName] = useState(user.lastName);
   const [phoneNumber, setPhoneNumber] = useState(user.phoneNumber);
@@ -24,7 +23,6 @@ function UserProfile() {
   const handleClickUpdate = async (e) => {
     e.preventDefault();
     updateUser({
-      username,
       firstName,
       lastName,
       phoneNumber,
@@ -68,30 +66,6 @@ function UserProfile() {
             <div className="modal-body" onSubmit={handleClickUpdate}>
               <form className="row gx-2 gy-3">
                 <div className="col-6">
-                  <label className="form-label">Username</label>
-                  <input
-                    className="form-control"
-                    type="text"
-                    placeholder="title"
-                    value={username || ''}
-                    onChange={(e) => {
-                      setUsername(e.target.value);
-                    }}
-                  />
-                </div>
-                <div className="col-6">
-                  <label className="form-label">Phonenumber</label>
-                  <input
-                    className="form-control"
-                    type="text"
-                    placeholder="title"
-                    value={phoneNumber || ''}
-                    onChange={(e) => {
-                      setPhoneNumber(e.target.value);
-                    }}
-                  />
-                </div>
-                <div className="col-6">
                   <label className="form-label">Firstname</label>
                   <input
                     className="form-control"
@@ -112,6 +86,18 @@ function UserProfile() {
                     value={lastName || ''}
                     onChange={(e) => {
                       setLastName(e.target.value);
+                    }}
+                  />
+                </div>
+                <div className="col-12">
+                  <label className="form-label">Phonenumber</label>
+                  <input
+                    className="form-control"
+                    type="text"
+                    placeholder="title"
+                    value={phoneNumber || ''}
+                    onChange={(e) => {
+                      setPhoneNumber(e.target.value);
                     }}
                   />
                 </div>

@@ -1,9 +1,11 @@
 import axios from '../config/axios';
 import { createContext, useContext, useState, useEffect } from 'react';
+import { useAuth } from './AuthContext';
 
 const MeetingContext = createContext();
 
 function MeetingContextProvider({ children }) {
+  const { user } = useAuth();
   const [meeting, setMeeting] = useState([]);
   const [meetingDetail, setMeetingDetail] = useState({});
   const [agenda, setAgenda] = useState({});
@@ -23,7 +25,7 @@ function MeetingContextProvider({ children }) {
   useEffect(() => {
     fetchMeeting();
     getSecretary();
-  }, []);
+  }, [user]);
   const createMeeting = async (input) => {
     try {
       await axios.post('/meeting/create', input);
